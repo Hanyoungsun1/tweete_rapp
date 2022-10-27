@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {db, storage} from 'fbase';
-import { collection, addDoc , query , getDocs, onSnapshot} from "firebase/firestore";
+import { collection, addDoc , query , orderBy, getDocs, onSnapshot} from "firebase/firestore";
 import Tweet from 'components/Tweet';
 import { v4 as uuidv4 } from 'uuid';
 import { ref, uploadString, getDownloadURL } from "firebase/storage";

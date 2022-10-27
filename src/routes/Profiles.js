@@ -9,7 +9,7 @@ import { async } from '@firebase/util';
 function Profiles({userObj}) {
   const [tweets, setTweets] = useState([]);
   const navigate = useNavigate();
-  const [newDisplayName, setDisPlayName] = useState(userObj.displayName);
+  const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
 
   const onLogOutClick = () => {
     authService.signOut();
