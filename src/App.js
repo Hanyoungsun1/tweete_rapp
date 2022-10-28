@@ -1,7 +1,12 @@
 import React,{useState, useEffect} from "react";
-import AppRouter from "Router";
 import {authService} from 'fbase';
 import { onAuthStateChanged } from "firebase/auth";
+import AppRouter from "Router";
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
+library.add(fas, faTwitter, faGoogle, faGithub)
 
 function App() {
   const [init, setInit] = useState(false);
@@ -28,11 +33,20 @@ function App() {
 
   return (
     <>
-    {init ? <AppRouter isLoggedIn={isLoggedIn} userObj={userObj}/> : "initializing..." } 
-    <footer>&copy; {new Date().getFullYear()} Twitter app</footer>
+    {init ? ( 
+    <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} />
+    ) : (
+    "initializing..."
+     )} 
     </>
   );
 }
+/*
+{init ?( <AppRouter isLoggedIn={Boolean(userObj)} userObj={userObj} />
+    ) : (
+    "initializing..." )} 
+    <footer>&copy; {new Date().getFullYear()} Twitter app</footer>
+  */
 
 export default App;
 
